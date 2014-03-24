@@ -1,0 +1,74 @@
+<head>
+<title> SIGNING PARTY </title>
+</head>
+<body>
+<h2> Crea tu clave </h2>
+<p> gpg --gen-key </p>
+<p>gpg -k</p>
+
+<p>gpg gpg --keyserver hkp://keyserver.ubuntu.com:80 --send-key [tuclave]</p>
+</br>
+<h3> <a href="/me"> Carga tu info </a> </h3>
+ <div style="background-color:#000000;height:3px"> </div>
+<h2> Cómo firmar claves </h2>
+
+	<p>
+		Buscar a la persona y seleccionar el número que le corresponde en el menú y descargar su firma.
+	</p>
+	<p>
+	gpg --keyserver hkp://keyserver.ubuntu.com:80 --search foo@bar.com
+	</p>
+	<p>
+    gpg -k # lista las firmas locales (gpg -K incluye las secretas)
+	</p>
+<p>        
+Le pedimos un ID (para .ar DNI) y que nos muestre su fingerprint.
+Comparamos los datos contra el DNI y que el fingerprint sea el mismo que nos bajamos (en el ejemplo A1B2C3D4
+)</p>
+<p>
+Firmamos su clave:
+</p>
+	<p>gpg -sign-key A1B2C3D4</p>
+
+<p>Opcionalmente se puede cambiar el nivel de confianza.</p>
+<p>
+	gpg --edit-key ciarlante
+    gpg>trust # seleccionamos la opción deseada.
+</p>
+<p>
+Enviamos la clave del usuario que ahora está firmada por nosotros:
+
+	gpg --send A1B2C3D4
+</p>
+<p>
+Por último el usuario debe descargar nuevamente su firma actualizada.
+	</p>
+
+
+ <div style="background-color:#000000;height:3px"> </div>
+  <div style="background-color:#000000;height:3px"> </div>
+</br>
+   <div style="background-color:#000000;height:3px"> </div>
+   <div style="background-color:#000000;height:3px"> </div>
+
+   <h2> Lista de  facilitadora PY-AR </h2>
+{% if personas %}
+    <ul>
+   <div style="background-color:#000000;height:3px"> </div>
+
+    {% for persona in personas %}
+        <div >
+        	<p> gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys {{persona.finger_print}} #{{persona.name}}<p>
+        	<p> gpg --sign-key {{persona.finger_print}} </p>
+        	<p> gpg --keyserver hkp://keyserver.ubuntu.com:80 
+                   --send-keys {{persona.finger_print}} <p>
+        	
+        </div>
+        <div style="background-color:#000000;height:3px"> </div>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No persons are available.</p>
+{% endif %}
+
+</body>
