@@ -10,9 +10,9 @@ Meanwhile APE gets the info in the index auto generate a list with the commands 
 
 Disclaimer
 ===
-1. The autor is not responsble for the uses of this project.
+1. The autor is not responsble for the uses of this project .
 
-2. The project is not a guarantee, remember you have always take personal approchemnt with a person befor signing his key.
+2. The project is not a guarantee, remember you have always take personal approchemnt with a person befor signing his key .
 
-3. This project isn't either the prettiest or the most optimized, is a simple solution to a problem.
+3. This project isn't either the prettiest or the most optimized, is a simple solution to a problem .
 
